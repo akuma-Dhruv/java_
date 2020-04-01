@@ -1,5 +1,5 @@
-// code to switch bwetween two given iamges by anmiating
-//vahnge variable and image id accordingly
+// code to switch between two given images by anmiating
+//change variable and image id accordingly
 
 
     boolean ontap=true;
