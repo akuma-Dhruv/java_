@@ -20,3 +20,6 @@
         }
 
         }
+//more codes
+/*      bart.animate().translationXBy(-1100).alpha(1).setDuration(1500);
+        bart.animate().rotation(3600).scaleX(2).scaleY(2).alpha(1).setDuration(2500);*/
