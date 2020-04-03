@@ -1,5 +1,8 @@
 //gridlayout to set all images to null
 
+import androidx.gridlayout.widget.GridLayout;
+
+
 GridLayout gridLayout;
             gridLayout = (GridLayout) findViewById(R.id.gridLayout1);
 
