@@ -10,11 +10,12 @@ AudioManager audioManager;
 audioManager= (AudioManager) getSystemService(AUDIO_SERVICE);
         sound =MediaPlayer.create(this,R.raw.sony);
 
-        int maxvVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int  currentVolume =audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
         SeekBar volumeControl;
         volumeControl = (SeekBar) findViewById(R.id.seekBar);
-        volumeControl.setMax(maxvVolume);
-
+        volumeControl.setMax(maxVolume);
+        volumeControl.setProgress(currentVolume);
         volumeControl.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
