@@ -1,4 +1,4 @@
-        sharedPreferences = this.getSharedPreferences("com.dhruv.dialoge", Context.MODE_PRIVATE);
+        sharedPreferences = this.getSharedPreferences("PACKAGE_NAME_HERE", Context.MODE_PRIVATE);
         
         sharedPreferences.edit().putInt("Language Code",val).apply();//to save 
 
