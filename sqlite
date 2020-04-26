@@ -1,0 +1,18 @@
+SQLiteDatabase events=this.openOrCreateDatabase("Event",MODE_PRIVATE,null);
+        events.execSQL("CREATE TABLE IF NOT EXISTS event (name VARCHAR,year INT(3))");
+        events.execSQL("INSERT INTO event (name,year)VALUES('TCS',2017)");
+        events.execSQL("INSERT INTO event (name,year)VALUES('MUN',2017)");
+        events.execSQL("INSERT INTO event (name,year)VALUES('FAREWELL',2018)");
+        events.execSQL("INSERT INTO event (name,year)VALUES('FAREWELL',2019)");
+        events.execSQL("INSERT INTO event (name,year)VALUES('UNIVERSUM',2019)");
+        Cursor c= events.rawQuery("SELECT * FROM event",null);
+        int nameindex =c.getColumnIndex("name");
+        int yearindex =c.getColumnIndex("year");
+        c.moveToFirst();
+        while (c!=null)
+        {
+            Log.i("name",c.getString(nameindex));
+            Log.i("year",c.getString(yearindex));
+            c.moveToNext();
+
+        }
