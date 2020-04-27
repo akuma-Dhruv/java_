@@ -16,3 +16,48 @@ SQLiteDatabase events=this.openOrCreateDatabase("Event",MODE_PRIVATE,null);
             c.moveToNext();
 
         }
+        
+        
+        
+        
+        //--------------------------------------------------------------------------------------------------------------------------------------
+          //insert via alternate method
+          
+          String sql = "INSERT INTO rawData (name,confirmed,cured,death) VALUES (?,?,?,?)";
+                SQLiteStatement statement= CaseDB.compileStatement(sql);
+          statement.bindString(1,Name);
+                        statement.bindString(2,Con);
+                        statement.bindString(3,Cured);
+                        statement.bindString(4,Death);
+                        statement.execute();
+          
+          ///////////////////////////////////////////////////////////////////////////////
+          //access data
+          
+          
+          
+          
+          public void getdata() {
+      CaseDB.execSQL("DELETE FROM rawdata");
+      CaseDB.execSQL("INSERT INTO rawData (name,confirmed,cured,death) VALUES (0,0,0,0)");
+      Cursor c = CaseDB.rawQuery("SELECT * FROM rawData", null);
+
+      int nameindex = c.getColumnIndex("name");
+      int confirmedindex = c.getColumnIndex("confirmed");
+      int curedindex = c.getColumnIndex("cured");
+      int deathindex = c.getColumnIndex("death");
+
+      int cSize = c.getCount();
+      if (c.moveToFirst() && c != null) {
+          for (int i = 0; i < cSize; i++) {
+              Log.i("name ", c.getString(nameindex));
+              Log.i("confirmed ", c.getString(confirmedindex));
+              Log.i("cured ", c.getString(curedindex));
+              Log.i("death ", c.getString(deathindex));
+              c.moveToNext();
+          }
+      }
+
+  }
+          
+          
